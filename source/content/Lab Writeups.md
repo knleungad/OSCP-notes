@@ -1,0 +1,2 @@
+## Exercise labs
+[[Exercise labs]]

